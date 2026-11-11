@@ -1,0 +1,667 @@
+:root {
+  color-scheme: light;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #3e453c;
+  background: #f8f6f1;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  --ink: #3e453c;
+  --muted: #828477;
+  --green: #697766;
+  --paper: #f8f6f1;
+  --line: #deddd3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1120px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.site-header {
+  height: 78px;
+  border-bottom: 1px solid rgb(62 69 60 / 12%);
+}
+
+.wordmark,
+.header-link,
+.eyebrow,
+.hero-note,
+.hero-photo-note,
+.photo-index,
+.memory-kicker,
+.detail-label,
+.site-footer {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
+.wordmark {
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.header-link {
+  color: #65695f;
+  letter-spacing: 0.06em;
+}
+
+.header-link span {
+  margin-left: 8px;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 7%;
+  width: min(1120px, calc(100% - 64px));
+  min-height: 580px;
+  margin: 0 auto;
+  padding: 68px 0 84px;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.eyebrow-line {
+  width: 25px;
+  height: 1px;
+  background: #a4a391;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Iowan Old Style", "Songti SC", "STSong", Georgia, serif;
+  font-weight: 400;
+}
+
+h1 {
+  margin-bottom: 23px;
+  font-size: clamp(2.7rem, 5.2vw, 4.65rem);
+  letter-spacing: 0.015em;
+  line-height: 1.32;
+}
+
+h1 span,
+h2 span {
+  color: #8a907c;
+}
+
+.hero-description {
+  max-width: 400px;
+  margin-bottom: 28px;
+  color: #74756b;
+  font-size: 0.94rem;
+  line-height: 2;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding: 14px 19px;
+  border: 1px solid #687563;
+  border-radius: 2px;
+  color: #4c594a;
+  font-size: 0.82rem;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.button-link:hover {
+  background: #687563;
+  color: #fff;
+}
+
+.hero-note {
+  margin: 17px 0 0;
+  color: #a09f92;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+}
+
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 435px;
+  justify-self: end;
+}
+
+.photo-placeholder {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: column;
+  background:
+    linear-gradient(145deg, transparent 47%, rgb(255 255 255 / 28%) 48%, transparent 49%),
+    linear-gradient(35deg, transparent 54%, rgb(255 255 255 / 30%) 55%, transparent 56%),
+    #d8d8c8;
+  color: #747866;
+  text-align: center;
+}
+
+.hero-photo {
+  width: 100%;
+  aspect-ratio: 0.88;
+  border: 10px solid #fffefa;
+  box-shadow: 0 18px 45px rgb(65 68 55 / 12%);
+  transform: rotate(1.7deg);
+}
+
+.photo-mark {
+  margin-bottom: 10px;
+  color: rgb(255 255 255 / 76%);
+  font-size: 2rem;
+}
+
+.photo-caption {
+  max-width: 80%;
+  font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.photo-index {
+  position: absolute;
+  right: 12px;
+  bottom: 11px;
+  color: rgb(62 69 60 / 65%);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+}
+
+.photo-sticker {
+  position: absolute;
+  z-index: 1;
+  top: 13%;
+  left: -45px;
+  display: grid;
+  width: 85px;
+  height: 85px;
+  place-content: center;
+  border-radius: 50%;
+  background: #d7d1bd;
+  color: #fffefa;
+  font-family: Georgia, serif;
+  font-size: 0.66rem;
+  line-height: 1.25;
+  text-align: center;
+  transform: rotate(-12deg);
+}
+
+.hero-photo-note {
+  margin: 22px 0 0;
+  color: #98988b;
+  text-align: right;
+}
+
+.hero-photo-note span {
+  margin-left: 9px;
+  color: #9c806e;
+}
+
+.hero-decoration {
+  position: absolute;
+  color: #c4bda8;
+}
+
+.decoration-one {
+  top: 11%;
+  left: 49%;
+  font-size: 1.2rem;
+}
+
+.decoration-two {
+  right: -15px;
+  bottom: 18%;
+  color: #a7ab98;
+}
+
+.chapter {
+  padding: 85px 0 95px;
+  background: #f0eee7;
+}
+
+.section-heading,
+.timeline {
+  width: min(900px, calc(100% - 64px));
+  margin: 0 auto;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 55px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 15px;
+}
+
+.heading-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #a4a391;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.02em;
+}
+
+.section-note {
+  margin: 0 0 3px;
+  color: #87877b;
+  font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  text-align: right;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  position: absolute;
+  top: 7px;
+  bottom: 50px;
+  left: 6px;
+  width: 1px;
+  background: #d1d0c4;
+  content: "";
+}
+
+.memory-card {
+  position: relative;
+  padding: 0 0 52px 37px;
+}
+
+.memory-card:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  border: 1px solid #8a907c;
+  border-radius: 50%;
+  background: #f0eee7;
+  box-shadow: inset 0 0 0 3px #f0eee7;
+}
+
+.memory-date {
+  margin-bottom: 18px;
+  color: #858579;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.memory-date span {
+  padding: 0 7px;
+  color: #b2ad9e;
+}
+
+.memory-content {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  align-items: center;
+  gap: 45px;
+  padding: 25px 30px;
+  border: 1px solid #e0ded4;
+  background: rgb(255 254 250 / 64%);
+}
+
+.memory-kicker {
+  margin-bottom: 10px;
+  color: #999987;
+  font-size: 0.58rem;
+}
+
+h3 {
+  margin-bottom: 11px;
+  font-size: 1.6rem;
+  line-height: 1.45;
+}
+
+.memory-description {
+  max-width: 440px;
+  margin-bottom: 17px;
+  color: #7d7d72;
+  font-size: 0.82rem;
+  line-height: 1.9;
+}
+
+.memory-location {
+  margin: 0;
+  color: #8f917f;
+  font-size: 0.72rem;
+}
+
+.memory-location span {
+  margin-left: 5px;
+}
+
+.memory-photo {
+  width: 100%;
+  aspect-ratio: 1.26;
+  background-color: #d9d8ca;
+}
+
+.photo-placeholder-sage {
+  background-color: #cbd2c2;
+}
+
+.photo-placeholder-rose {
+  background-color: #ded0c4;
+}
+
+.keepsake {
+  position: relative;
+  overflow: hidden;
+  padding: 85px 32px 80px;
+  background: #e6e5da;
+  text-align: center;
+}
+
+.keepsake-heading {
+  position: relative;
+  z-index: 1;
+}
+
+.keepsake-heading .eyebrow {
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.keepsake-heading h2 {
+  margin-bottom: 17px;
+}
+
+.keepsake-heading > p:last-child {
+  margin-bottom: 0;
+  color: #77796e;
+  font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.keepsake-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: min(820px, 100%);
+  margin: 46px auto 0;
+  border-top: 1px solid #cdcec0;
+  border-bottom: 1px solid #cdcec0;
+}
+
+.detail-item {
+  display: grid;
+  gap: 12px;
+  padding: 23px 15px;
+}
+
+.detail-item + .detail-item {
+  border-left: 1px solid #cdcec0;
+}
+
+.detail-label {
+  color: #858679;
+  font-size: 0.58rem;
+}
+
+.detail-item strong {
+  color: #525c4e;
+  font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.keepsake-sparkle {
+  position: absolute;
+  right: 11%;
+  bottom: 17%;
+  color: #c0bba7;
+  font-size: 2rem;
+}
+
+.site-footer {
+  min-height: 76px;
+  color: #89897d;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer p span {
+  margin-left: 5px;
+  color: #aa8275;
+}
+
+.site-footer a:hover,
+.header-link:hover {
+  color: #4c594a;
+}
+
+@media (max-width: 700px) {
+  .site-header,
+  .site-footer {
+    width: calc(100% - 40px);
+  }
+
+  .site-header {
+    height: 66px;
+  }
+
+  .wordmark {
+    font-size: 0.59rem;
+  }
+
+  .header-link {
+    font-size: 0.65rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 39px;
+    width: calc(100% - 40px);
+    padding: 61px 0 68px;
+  }
+
+  .hero-copy {
+    max-width: 520px;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 11vw, 4rem);
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+  }
+
+  .hero-visual {
+    width: min(82%, 380px);
+    justify-self: center;
+    margin-left: 12px;
+  }
+
+  .hero-photo {
+    aspect-ratio: 1.1;
+  }
+
+  .photo-sticker {
+    left: -30px;
+    width: 72px;
+    height: 72px;
+    font-size: 0.58rem;
+  }
+
+  .decoration-one {
+    top: 48%;
+    left: auto;
+    right: 4%;
+  }
+
+  .decoration-two {
+    right: 2px;
+    bottom: 13%;
+  }
+
+  .chapter {
+    padding: 66px 0 70px;
+  }
+
+  .section-heading,
+  .timeline {
+    width: calc(100% - 40px);
+  }
+
+  .section-heading {
+    align-items: start;
+    gap: 20px;
+    margin-bottom: 39px;
+  }
+
+  .section-heading .eyebrow {
+    flex-wrap: wrap;
+    font-size: 0.57rem;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .section-note {
+    padding-top: 30px;
+    font-size: 0.75rem;
+  }
+
+  .memory-card {
+    padding-left: 25px;
+    padding-bottom: 39px;
+  }
+
+  .memory-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 21px;
+  }
+
+  .memory-photo {
+    aspect-ratio: 1.6;
+  }
+
+  .memory-description {
+    margin-bottom: 12px;
+  }
+
+  .keepsake {
+    padding: 66px 20px 62px;
+  }
+
+  .keepsake-heading h2 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .keepsake-heading > p:last-child {
+    max-width: 350px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 0.82rem;
+  }
+
+  .keepsake-details {
+    grid-template-columns: 1fr;
+    margin-top: 31px;
+  }
+
+  .detail-item {
+    gap: 7px;
+    padding: 17px 10px;
+  }
+
+  .detail-item + .detail-item {
+    border-top: 1px solid #cdcec0;
+    border-left: 0;
+  }
+
+  .keepsake-sparkle {
+    right: 6%;
+    bottom: 5%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
